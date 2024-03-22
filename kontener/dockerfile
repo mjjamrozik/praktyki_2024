@@ -1,5 +1,6 @@
-FROM arm64v8/php:8.2-cli
+FROM php:8.3-fpm-bookworm
 
-COPY ./index.html /app/index.html
+COPY ./index.php /app/index.php
 
-COPY ./konfiguracja.conf /etc/nginx/conf.d/default.conf
+
+
