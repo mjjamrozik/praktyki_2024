@@ -1,11 +1,9 @@
 version: "3"
 services: 
   my_php:
-    container_name: zadane
+    container_name: fpm
     build:
-      dockerfile: ./kontener/Dockerfile
-    ports:
-      - 82:80
+      dockerfile: ./kontener/Dockerfile  
     volumes: 
       - ./kontener/index.php:/app/index.php
     networks:
@@ -15,7 +13,7 @@ services:
     build:
       dockerfile: ./nginx/Dockerfile
     ports:
-      - 8080:8080
+      - 80:80
     
     volumes: 
       - ./nginx/index.php:/app/index.php
