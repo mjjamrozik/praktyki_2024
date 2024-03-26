@@ -9,8 +9,8 @@ RUN apt-get update && apt-get install -y \
 	&& docker-php-ext-install gd
 
 
-RUN apt install libzip-dev
-	docker-php-ext-install zip
+RUN apt install -y libzip-dev \
+	&& docker-php-ext-install zip
 	
 
 

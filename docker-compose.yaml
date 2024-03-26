@@ -1,6 +1,6 @@
 version: "3"
 services: 
-  my_php:
+  fpm:
     container_name: fpm
     build:
       dockerfile: ./kontener/Dockerfile  
@@ -12,10 +12,15 @@ services:
     container_name: praktyka
     build:
       dockerfile: ./nginx/Dockerfile
+    depends_on:
+      - fpm
     ports:
       - 80:80
     volumes: 
       - ./strona:/app
+      - ./nginx/konf.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - static-network
     
 networks:
   static-network:
